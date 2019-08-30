@@ -42,6 +42,10 @@ if __name__ == '__main__':
         name = file[idx + 1:-5]
         output_file = os.path.join(args.output, name + '.hdf5')
 
+        if os.path.isfile(output_file):
+            print('file already exists: ' + output_file)
+            return
+
         # running ntuplizer
         result, names = ntuplizer.convert(file)
 
