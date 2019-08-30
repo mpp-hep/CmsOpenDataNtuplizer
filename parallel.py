@@ -58,7 +58,7 @@ if __name__ == '__main__':
         hdf5_file.create_dataset('data', data=result, compression='gzip')
         hdf5_file.close()
 
-        print('time taken: ' + int(time.time() - start))
+        print('time taken: ' + str(int(time.time() - start)))
 
 
     p = Pool(int(args.n))
