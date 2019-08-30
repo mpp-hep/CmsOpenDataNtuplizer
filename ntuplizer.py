@@ -42,6 +42,7 @@ class Ntuplizer:
         # compute selection mask
         mask = np.ones(n_events, dtype=bool)
         for selector in self.selectors:
+            print('running ' + selector.get_name())
             mask = np.logical_and(mask, selector.select(values))
 
         # apply selection mask
@@ -55,6 +56,7 @@ class Ntuplizer:
         # compute all quantities and add to result
         j = 0
         for q in self.quantities:
+            print('running ' + str(q.get_names()))
             val = q.compute(values, n_events)
             s = q.get_size()
             result[:, j:j + s] = val
