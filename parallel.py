@@ -46,6 +46,8 @@ if __name__ == '__main__':
             print('file already exists: ' + output_file)
             return
 
+        start = time.time()
+
         # running ntuplizer
         result, names = ntuplizer.convert(file)
 
@@ -55,6 +57,8 @@ if __name__ == '__main__':
         hdf5_file = h5py.File(output_file, "w")
         hdf5_file.create_dataset('data', data=result, compression='gzip')
         hdf5_file.close()
+
+        print('time taken: ' + int(time.time() - start))
 
 
     p = Pool(int(args.n))
