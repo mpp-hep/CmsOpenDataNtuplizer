@@ -13,9 +13,14 @@ def load(file_path):
     print('loading: ' + file_path)
 
     # load hdf5 file
-    hdf5_file = h5py.File(file_path, "r")
-    data = hdf5_file['data'].value
-    hdf5_file.close()
+    try:
+        hdf5_file = h5py.File(file_path, "r")
+        data = hdf5_file['data'].value
+        hdf5_file.close()
+    except:
+        print('failed to load: ' + file_path)
+        return None
+
     return data
 
 
@@ -33,6 +38,10 @@ if __name__ == '__main__':
     file_path_list = [os.path.join(args.input, f) for f in os.listdir(args.input)]
 
     res = p.map(load, file_path_list)
+
+    res.append(None)
+
+    res = [x for x in res if x is not None]
 
     print('loading finished. number of files loaded: ' + str(len(res)))
     print('concatenating files')
