@@ -5,12 +5,6 @@ from hlf_ntuplizer import *
 from multiprocessing import Pool
 import time
 
-
-def f(x):
-    time.sleep(1)
-    print(x ** 2)
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', type=str, help="file containing the list of input files", required=True)
