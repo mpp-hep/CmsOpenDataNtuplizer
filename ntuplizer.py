@@ -13,6 +13,13 @@ class Ntuplizer:
     def register_quantity_module(self, q):
         self.quantities.append(q)
 
+    def get_names(self):
+        names = []
+        for q in self.quantities:
+            names.extend(q.get_names())
+
+        return names
+
     def convert(self, input_file):
         print('loading file: ' + input_file)
         f = ur.open(input_file)

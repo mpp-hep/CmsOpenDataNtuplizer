@@ -29,6 +29,8 @@ if __name__ == '__main__':
     ntuplizer.register_quantity_module(ParticleCountModule('ch', 211))
     ntuplizer.register_quantity_module(ParticleCountModule('photon', 22))
 
+    print(ntuplizer.get_names())
+
 
     def convert_file(file):
         # output file
