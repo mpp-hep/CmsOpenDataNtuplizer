@@ -3,9 +3,16 @@ import h5py
 import sklearn
 
 if __name__ == '__main__':
-    data_files = ['/home/oliverkn/pro/6021/data_hlf.hdf5', '/home/oliverkn/pro/9865/data_hlf.hdf5']
-    xsec = np.array([0.001, 0.002])
-    output_file = '/home/oliverkn/pro/testseetst.hdf5'
+    data_files = ['/eos/home-o/oknapp/record_7719/data.hdf5',
+                  '/eos/home-o/oknapp/record_7721/data.hdf5',
+                  '/eos/home-o/oknapp/record_7722/data.hdf5',
+                  '/eos/home-o/oknapp/record_7723/data.hdf5',
+                  '/eos/home-o/oknapp/record_9863/data.hdf5',
+                  '/eos/home-o/oknapp/record_9864/data.hdf5',
+                  '/eos/home-o/oknapp/record_9865/data.hdf5']
+
+    xsec = np.array([561, 181, 51.1, 15, 4480, 1435, 304.2])
+    output_file = '/eos/home-o/oknapp/wjets_dyjets_mix.hdf5'
     max_length = -1
 
     fraction = xsec / np.sum(xsec)
