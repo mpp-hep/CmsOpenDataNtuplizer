@@ -13,6 +13,11 @@ if __name__ == '__main__':
 
     xsec = np.array([561, 181, 51.1, 15, 4480, 1435, 304.2])
     output_file = '/eos/home-o/oknapp/wjets_dyjets_mix.hdf5'
+
+    # data_files = ['/home/oliverkn/pro/6021/data_hlf.hdf5', '/home/oliverkn/pro/9865/data_hlf.hdf5']
+    # xsec = np.array([0.001, 0.002])
+    # output_file = '/home/oliverkn/pro/testseetst.hdf5'
+
     max_length = -1
 
     fraction = xsec / np.sum(xsec)
@@ -41,7 +46,7 @@ if __name__ == '__main__':
         data_list[i] = data_list[i][0:N_i]
 
     for i in range(len(data_list)):
-        print('%s: %s (%s)' % (data_files[i], data_list[i].shape, data_list[i].shape[0] / N))
+        print('%s: %s (%s)' % (data_files[i], data_list[i].shape, data_list[i].shape[0] / float(N)))
 
     print('concatenating...')
     data_fused = np.concatenate(data_list, axis=0)
