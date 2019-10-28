@@ -81,8 +81,8 @@ class JetModule:
         mass_jet = np.zeros(n_events)
 
         for i in range(n_events):
-            # select jets with P_T > 30
-            mask = pt[i] > 30
+            # select jets with P_T > 30 GeV and |eta| < 2.4
+            mask = np.logical_and(pt[i] > 30, np.abs(eta[i]) < 2.4)
 
             HT[i] = np.sum(pt[i][mask])
             n_jet[i] = np.sum(mask)
