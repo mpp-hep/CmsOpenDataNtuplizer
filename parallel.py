@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
         with n_tot.get_lock():
             n_tot.value += result.shape[0]
-            print('N_tot: ' + str(n_tot.value))
+            print('N_tot: %d (%d %)' % (n_tot.value, n_tot.value / n_tot_target * 100))
 
         print('saving output to file: ' + output_file)
         hdf5_file = h5py.File(output_file, "w")
