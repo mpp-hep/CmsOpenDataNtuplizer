@@ -25,6 +25,7 @@ class Ntuplizer:
         f = ur.open(input_file)
         e = f['Events']
 
+        n_events_tot = e.__len__()
         n_events = e.__len__()
         n_quantities = 0
 
@@ -70,4 +71,4 @@ class Ntuplizer:
             j += s
             names.extend(q.get_names())
 
-        return result, names, n_events
+        return result, names, n_events_tot
