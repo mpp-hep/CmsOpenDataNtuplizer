@@ -59,7 +59,7 @@ if __name__ == '__main__':
         print('output shape: ' + str(result.shape))
 
         with n_tot.get_lock():
-            n_tot.value += result.shape[0]
+            n_tot.value += n_events
             print('N_tot: %d (%d percent)' % (n_tot.value, n_tot.value / n_tot_target * 100))
 
         print('saving output to file: ' + output_file)
