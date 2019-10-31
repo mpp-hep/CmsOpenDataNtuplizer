@@ -66,7 +66,7 @@ if __name__ == '__main__':
         hdf5_file = h5py.File(output_file, "w")
         hdf5_file.create_dataset('data', data=result, compression='gzip')
         hdf5_file.create_dataset('header', data=ntuplizer.get_names())
-        hdf5_file.create_dataset('shape', data=result.shape[0])
+        hdf5_file.create_dataset('n_tot', data=n_events)
         hdf5_file.close()
 
         print('time taken: ' + str(int(time.time() - start)))
