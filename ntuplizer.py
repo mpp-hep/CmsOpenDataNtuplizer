@@ -70,4 +70,4 @@ class Ntuplizer:
             j += s
             names.extend(q.get_names())
 
-        return result, names
+        return result, names, n_events
