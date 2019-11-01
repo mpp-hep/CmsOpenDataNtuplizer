@@ -15,7 +15,7 @@ def load(file_path):
     # load hdf5 file
     try:
         hdf5_file = h5py.File(file_path, "r")
-        data = hdf5_file['data'].value
+        data = hdf5_file['data'][()]
         n_tot = hdf5_file['n_tot'][()]
         # header = hdf5_file['header'][()]
         hdf5_file.close()
@@ -23,7 +23,7 @@ def load(file_path):
         print('failed to load: ' + file_path)
         return None
 
-    return data, n_tot
+    return (data, n_tot)
 
 
 if __name__ == '__main__':
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     print('n_tot: ' + str(n_tot_sum))
 
     print('concatenating files')
-    data_fused = np.concatenate(res, axis=0)
+    data_fused = np.concatenate(data_list, axis=0)
     print('concatenation finished. shape: ' + str(data_fused.shape))
 
     print('saving to: ' + args.output)
@@ -57,3 +57,4 @@ if __name__ == '__main__':
     hdf5_file.create_dataset('n_tot', data=n_tot_sum)
     hdf5_file.close()
     print('finished')
+
