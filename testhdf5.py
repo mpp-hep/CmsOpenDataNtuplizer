@@ -11,5 +11,6 @@ if __name__ == '__main__':
     # hdf5_file.create_dataset('header', data=('a', 'b'))
     # hdf5_file.close()
     #
-    f = h5py.File('/home/oliverkn/Downloads/bla.hdf5', "r")
-    print(f['shape'][0])
+    f = h5py.File('/home/oliverkn/pro/opendata_v2/7723/data.hdf5', "r")
+    print(f['n_tot'][()])
+    print(f['data'][()].shape)
