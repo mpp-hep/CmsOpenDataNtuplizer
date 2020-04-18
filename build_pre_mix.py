@@ -29,9 +29,10 @@ for i, data_file in enumerate(data_files):
 
     N_tot = hdf5_file['n_tot'][()]
     N_tot_target = K[i] * xsec[i]
+    weight = N_tot_target / N_tot
 
     N_pre = x.shape[0]
-    N_pre_target = N_tot_target / N_tot * N_pre
+    N_pre_target = weight * N_pre
 
     fractions.append(N_pre_target)
 

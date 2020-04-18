@@ -11,18 +11,19 @@ def pre_select(x):
     return x[filter_idx]
 
 
-record_list = [6021,  # data
-               7719,  # DY1
-               7721,
-               7722,
-               7723,
-               9863,  # W1
-               9864,
-               9865,
-               9588  # ttbar
+record_list = [6021#,  # data
+               # 7719,  # DY1
+               # 7721,
+               # 7722,
+               # 7723,
+               # 9863,  # W1
+               # 9864,
+               # 9865,
+               # 9588  # ttbar
                ]
 
-base_dir = '/eos/home-o/oknapp/opendata_v2'
+# base_dir = '/eos/home-o/oknapp/opendata_v2'
+base_dir = '/home/oliverkn/pro/opendata_v2'
 
 for record in record_list:
     print('loading %s' % record)
